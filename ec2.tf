@@ -23,13 +23,11 @@ resource "aws_autoscaling_group" "nmg" {
 resource "aws_launch_configuration" "nmg" {
   image_id  = var.ami
   user_data = file("userdata.sh")
-  #efs_dns_name                = "${var.efs_dns_name}"
   name_prefix                 = "${var.name}-nmg"
   instance_type               = var.ec2_type
   key_name                    = var.ssh_keypair_name
   associate_public_ip_address = false
   enable_monitoring           = false
-  #   iam_instance_profile        = "${var.ec2_role}"
   security_groups = ["${aws_security_group.allow_ssh_http.id}"]
 
   root_block_device {
