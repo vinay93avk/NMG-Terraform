@@ -25,8 +25,11 @@
 -backend-config="region=us-east-2" -reconfigure to initialize working directory containing Terraform configuration files. (Modify the name of the bucket)
 4. Run "terraform plan -var-file=environments/dev.tfvars" to create an execution plan
 5. Run "terraform apply -var-file=environments/dev.tfvars -auto-approve" to execute the actions proposed in a Terraform plan.
-6. To test if this work is successful, two curl commands can be run:
 
-• curl -H 'Host: test1.foo.io' http://{alb}
-• curl -H 'Host: test2.foo.io' http://{alb}
-7. Once you finish testing you can destroy the provisioned infrastructure using "terraform destroy -var-file=environments/dev.tfvars -auto-approve"
+# To test if this work is successful, two curl commands can be run:
+
+- curl -H 'Host: test1.foo.io' http://{alb}
+- curl -H 'Host: test2.foo.io' http://{alb}
+
+# Command to destroy provisioned infra
+- "terraform destroy -var-file=environments/dev.tfvars -auto-approve"
